@@ -5,6 +5,10 @@ LED_PIN_1 = 17
 LED_PIN_2 = 27
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
+GPIO.setup(LED_PIN_1, GPIO.OUT)
+GPIO.setup(LED_PIN_2, GPIO.OUT)
+GPIO.output(LED_PIN_1,GPIO.LOW)
+GPIO.output(LED_PIN_2,GPIO.LOW)
 
 previous_button_state=GPIO.input(BUTTON_PIN)
 led_index=0
