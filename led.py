@@ -15,6 +15,7 @@ while(1):
     else:
         GPIO.output(LED_PIN,GPIO.LOW)
         print("button released, LED Off")
+        time.sleep(2)
 
 
 GPIO.cleanup()
