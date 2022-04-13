@@ -22,16 +22,16 @@ while(1):
                 GPIO.output(LED_PIN_1,GPIO.HIGH)
                 GPIO.output(LED_PIN_2,GPIO.LOW)
                 led_index=1
-                print(led_index)
+                #print(led_index)
             elif led_index==1:
                 GPIO.output(LED_PIN_1,GPIO.LOW)
                 GPIO.output(LED_PIN_2,GPIO.HIGH)
                 led_index=2 
-                print(led_index)       
+                #print(led_index)       
             else:
                 GPIO.output(LED_PIN_1,GPIO.HIGH)
                 GPIO.output(LED_PIN_2,GPIO.HIGH)
-                print(led_index)
+                #print(led_index)
                 led_index=0
                 
 
