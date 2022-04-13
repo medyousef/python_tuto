@@ -10,26 +10,17 @@ GPIO.setup(BUTTON_PIN, GPIO.IN)
 while(1):
     if (GPIO.input(BUTTON_PIN)):
         GPIO.output(LED_PIN_1,GPIO.HIGH)
+        GPIO.output(LED_PIN_2,GPIO.LOW)
         time.sleep(1)
         GPIO.output(LED_PIN_1,GPIO.LOW)
-        time.sleep(1)
-        print("button pressed, LEDs blinks")
-    else:
-        GPIO.output(LED_PIN_1,GPIO.LOW)
-        print("button released, LEDs Off")
-        time.sleep(2)
-while(1):
-    if (GPIO.input(BUTTON_PIN)):
-        time.sleep(1)
         GPIO.output(LED_PIN_2,GPIO.HIGH)
         time.sleep(1)
-        GPIO.output(LED_PIN_2,GPIO.LOW)       
         print("button pressed, LEDs blinks")
     else:
-        GPIO.output(LED_PIN_2,GPIO.LOW)
+        GPIO.output(LED_PIN_1,GPIO.LOW)
+        PIO.output(LED_PIN_2,GPIO.LOW)
         print("button released, LEDs Off")
         time.sleep(2)
-
 
 GPIO.cleanup()
 """ if state==1:
