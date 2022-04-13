@@ -1,10 +1,13 @@
 import RPi.GPIO as GPIO
 import time
+BUTTON_PIN=26
 LED_PIN = 17
 GPIO.setmode(GPIO.BCM)
 state=int(input("1 to start 0 to exit: "))
 GPIO.setup(LED_PIN, GPIO.OUT)
-if state==1:
+GPIO.setup(BUTTON_PIN, GPIO.IN)
+print(GPIO.input(BUTTON_PIN))
+""" if state==1:
     while(1):
         GPIO.output(LED_PIN,GPIO.HIGH)
         time.sleep(1)
@@ -15,5 +18,5 @@ elif state==0:
 else:
     print("wrong number")
     GPIO.cleanup()
-    exit
+    exit """
 
