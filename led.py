@@ -7,6 +7,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
 print(GPIO.input(BUTTON_PIN))
+GPIO.cleanup()
 """ if state==1:
     while(1):
         GPIO.output(LED_PIN,GPIO.HIGH)
