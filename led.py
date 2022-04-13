@@ -3,19 +3,11 @@ import time
 BUTTON_PIN=26
 LED_PIN_1 = 17
 LED_PIN_2 = 27
-state=-1
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
-while(1):
-    if (GPIO.input(BUTTON_PIN)):
-        state+=1
-        if state==3:
-            state=0
-        print(state)
-        time.sleep(1)
+state_1=0
 
-
-""" previous_button_state=GPIO.input(BUTTON_PIN)
+previous_button_state=GPIO.input(BUTTON_PIN)
 led_index=0
 while(1):
     time.sleep(0.01)
@@ -24,14 +16,18 @@ while(1):
         previous_button_state=button_state
         if button_state == GPIO.HIGH:
             if led_index==0:
-                print(led_index)
+                GPIO.output(LED_PIN_1,GPIO.HIGH)
+                GPIO.output(LED_PIN_2,GPIO.LOW)
                 led_index=1
             elif led_index==1:
-                print(led_index)
+                GPIO.output(LED_PIN_1,GPIO.LOW)
+                GPIO.output(LED_PIN_2,GPIO.HIGH)
                 led_index=2        
             else:
+                GPIO.output(LED_PIN_1,GPIO.HIGH)
+                GPIO.output(LED_PIN_2,GPIO.HIGH)
                 print(led_index)
-                led_index=0 """
+                led_index=0
                 
 
 
