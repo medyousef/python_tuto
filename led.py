@@ -14,7 +14,7 @@ previous_button_state=GPIO.input(BUTTON_PIN)
 led_index=0
 while(1):
     time.sleep(0.01)
-    button_state=GPIO.input(BUTTON_PIN)
+    button_state=0
     if button_state !=previous_button_state:
         previous_button_state=button_state
         if button_state == GPIO.HIGH:
