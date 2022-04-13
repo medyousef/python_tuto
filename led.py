@@ -5,7 +5,6 @@ LED_PIN_1 = 17
 LED_PIN_2 = 27
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
-state_1=0
 
 previous_button_state=GPIO.input(BUTTON_PIN)
 led_index=0
@@ -19,10 +18,12 @@ while(1):
                 GPIO.output(LED_PIN_1,GPIO.HIGH)
                 GPIO.output(LED_PIN_2,GPIO.LOW)
                 led_index=1
+                print(led_index)
             elif led_index==1:
                 GPIO.output(LED_PIN_1,GPIO.LOW)
                 GPIO.output(LED_PIN_2,GPIO.HIGH)
-                led_index=2        
+                led_index=2 
+                print(led_index)       
             else:
                 GPIO.output(LED_PIN_1,GPIO.HIGH)
                 GPIO.output(LED_PIN_2,GPIO.HIGH)
