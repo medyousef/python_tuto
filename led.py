@@ -12,6 +12,7 @@ while(1):
         if i==3:
             i=0
         print(i)
+        time.sleep(1)
 
 
 
