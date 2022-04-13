@@ -3,7 +3,7 @@ import time
 BUTTON_PIN=26
 LED_PIN = 17
 GPIO.setmode(GPIO.BCM)
-state=int(input("1 to start 0 to exit: "))
+""" state=int(input("1 to start 0 to exit: ")) """
 GPIO.setup(LED_PIN, GPIO.OUT)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
 print(GPIO.input(BUTTON_PIN))
