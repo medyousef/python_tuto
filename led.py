@@ -11,7 +11,7 @@ while(1):
         state+=1
         if state==3:
             state=0
-        print(i)
+        print(state)
         time.sleep(1)
 
 
