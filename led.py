@@ -12,7 +12,6 @@ GPIO.setup(BUTTON_PIN, GPIO.IN)
 
 GPIO.output(LED_1_PIN, GPIO.LOW)
 GPIO.output(LED_2_PIN, GPIO.LOW)
-GPIO.output(LED_3_PIN, GPIO.LOW)
 
 previous_button_state = GPIO.input(BUTTON_PIN)
 led_index = 0
