@@ -25,17 +25,23 @@ while True:
             if led_index == 0:
                 GPIO.output(LED_1_PIN, GPIO.HIGH)
                 GPIO.output(LED_2_PIN, GPIO.LOW)
-                print(led_index) 
+                print("led_index: ",led_index)
+                print("GPIO.input(BUTTON_PIN): ",GPIO.input(BUTTON_PIN))
+                print("button_state: ",button_state)
                 led_index = 1
             elif led_index == 1:
                 GPIO.output(LED_1_PIN, GPIO.LOW)
                 GPIO.output(LED_2_PIN, GPIO.HIGH)
-                print(led_index)
+                print("led_index: ",led_index)
+                print("GPIO.input(BUTTON_PIN): ",GPIO.input(BUTTON_PIN))
+                print("button_state: ",button_state)
                 led_index = 2
             else:
                 GPIO.output(LED_1_PIN, GPIO.HIGH)
                 GPIO.output(LED_2_PIN, GPIO.HIGH)
-                print(led_index)
+                print("led_index: ",led_index)
+                print("GPIO.input(BUTTON_PIN): ",GPIO.input(BUTTON_PIN))
+                print("button_state: ",button_state)
                 led_index = 0
 
 GPIO.cleanup()
