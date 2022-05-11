@@ -13,10 +13,10 @@ def power_on_selected_led(selected_led):
         return
     for led in LED_LIST:
         if led== selected_led:
-            GPIO.output(selected_led, GPIO.HIGH)
+            GPIO.output(led, GPIO.HIGH)
             print("led on: ", selected_led)
         else:
-            GPIO.output(selected_led, GPIO.LOW)
+            GPIO.output(led, GPIO.LOW)
             print("led off: ", selected_led)
 
 
