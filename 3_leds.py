@@ -26,7 +26,7 @@ while True:
     if previous_button_state != current_button_state:
         previous_button_state=current_button_state
         if current_button_state==GPIO.HIGH:
-            if led_index < len(LED_LIST):
+            if led_index <= len(LED_LIST):
                 for led in LED_LIST:
                     power_on_selected_led(LED_LIST[led_index])
                     led_index +=1
