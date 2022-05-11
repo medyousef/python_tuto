@@ -7,10 +7,15 @@ GPIO.setup(BUTTON_PIN, GPIO.IN)
 for led in LED_LIST:
     GPIO.setup(led,GPIO.OUT)
     GPIO.output(led, GPIO.LOW)
-def LED_state(led_on,leds_off):
-    GPIO.output(led_on, GPIO.HIGH)
-    for led in leds_off:
-        GPIO.output(leds_off, GPIO.LOW)
+def power_on_selected_led(selected_led):
+    if selected_led not in LED_LIST:
+        print("The LED does no exsit")
+        return
+    for led in LED_LIST:
+        if led== selected_led:
+            GPIO.output(selected_led, GPIO.HIGH)
+        else:
+            GPIO.output(LED_LIST, GPIO.LOW)
 
 
 previous_button_state = GPIO.input(BUTTON_PIN)
@@ -21,17 +26,12 @@ while True:
     if previous_button_state != current_button_state:
         previous_button_state=current_button_state
         if current_button_state==GPIO.HIGH:
-            if led_index==0:
-                LED_state(LED_LIST[2],LED_LIST[0:2])
-                print ("LED ON: ",LED_LIST[2], "LED OFF:",LED_LIST[0:2] )
-                led_index=1
-            elif led_index==1:
-                LED_state(LED_LIST[0],LED_LIST[1:3],)
-                led_index=2
-                print ("LED ON: ",LED_LIST[0], "LED OFF:",LED_LIST[1:3] )
+            if led_index < len(LED_LIST):
+                for led in LED_LIST:
+                    power_on_selected_led(led_index)
+                    led_index +=1
             else:    
-                LED_state(LED_LIST[1],(LED_LIST[0],LED_LIST[2]))
-                print ("LED ON: ",LED_LIST[1], "LED OFF:",(LED_LIST[0],LED_LIST[2]))
+                power_on_selected_led(led_index)
                 led_index=0
 
 GPIO.cleanup()
