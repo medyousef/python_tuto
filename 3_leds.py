@@ -4,8 +4,15 @@ LED_LIST=[17,27,16]
 BUTTON_PIN=26
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON_PIN, GPIO.IN)
-GPIO.setup(*LED_LIST,GPIO.OUT)
-GPIO.output(*LED_LIST,GPIO.LOW)
+for led in LED_LIST:
+    GPIO.setup(led,GPIO.OUT)
+    GPIO.output(led, GPIO.LOW)
+def LED_state(led_on,leds_off):
+    GPIO.output(led_on, GPIO.HIGH)
+    for led in leds_off:
+        GPIO.output(leds_off, GPIO.LOW)
+
+
 previous_button_state = GPIO.input(BUTTON_PIN)
 led_index = 0
 while True:
@@ -15,18 +22,15 @@ while True:
         previous_button_state=current_button_state
         if current_button_state==GPIO.HIGH:
             if led_index==0:
-                GPIO.output(LED_LIST[0:1], GPIO.LOW)
-                GPIO.output(LED_LIST[2], GPIO.HIGH)
+                LED_state(LED_LIST[2],LED_LIST[0:1])
                 print ("LED ON: ",LED_LIST[2], "LED OFF:",LED_LIST[0:1] )
                 led_index=1
             elif led_index==1:
-                GPIO.output(LED_LIST[1:2], GPIO.LOW)
-                GPIO.output(LED_LIST[0], GPIO.HIGH)
+                LED_state(LED_LIST[0],LED_LIST[1:2],)
                 led_index=2
                 print ("LED ON: ",LED_LIST[0], "LED OFF:",LED_LIST[1:2] )
             else:    
-                GPIO.output(LED_LIST[0,2], GPIO.LOW)
-                GPIO.output(LED_LIST[1], GPIO.HIGH)
+                LED_state(LED_LIST[1],LED_LIST[0,2])
                 print ("LED ON: ",LED_LIST[1], "LED OFF:",LED_LIST[0,2] )
                 led_index=0
 
