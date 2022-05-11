@@ -14,8 +14,11 @@ def power_on_selected_led(selected_led):
     for led in LED_LIST:
         if led== selected_led:
             GPIO.output(selected_led, GPIO.HIGH)
+            print("led on: ", selected_led)
         else:
-            GPIO.output(LED_LIST, GPIO.LOW)
+            GPIO.output(selected_led, GPIO.LOW)
+            print("led off: ", selected_led)
+
 
 
 previous_button_state = GPIO.input(BUTTON_PIN)
