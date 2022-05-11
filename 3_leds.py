@@ -28,10 +28,10 @@ while True:
         if current_button_state==GPIO.HIGH:
             if led_index <= len(LED_LIST):
                 for led in LED_LIST:
-                    power_on_selected_led(LED_LIST[led_index])
+                    power_on_selected_led(led)
                     led_index +=1
             else:    
-                power_on_selected_led(LED_LIST[led_index])
+                power_on_selected_led(led)
                 led_index=0
 
 GPIO.cleanup()
